@@ -1,0 +1,39 @@
+{
+  "indicators": {
+    "DÓLAR OBSERVADO": {
+      "code": "$",
+      "name": "Dolar",
+      "prefix": "$"
+    },
+    "EURO": {
+      "code": "€",
+      "name": "Euro",
+      "prefix": "$"
+    },
+    "IPSA": {
+      "code": "IPSA",
+      "name": "Indice de Precio Selectivo de Acciones",
+      "prefix": ""
+    },
+    "UF": {
+      "code": "UF",
+      "name": "Unidades de Fomento",
+      "prefix": "$"
+    },
+    "UTM": {
+      "code": "UTM",
+      "name": "Unidad Tributaria Mensual",
+      "prefix": "$"
+    },
+    "IPC": {
+      "code": "IPC",
+      "name": "Indice de Precios al Consumidor",
+      "prefix": ""
+    },
+    "TPM": {
+      "code": "TPM",
+      "name": "Tasa de Política Monetaria",
+      "prefix": "%"
+    }
+  }
+}
