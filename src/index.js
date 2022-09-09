@@ -8,6 +8,7 @@ const getIndicators = (type = '') => {
       el[1].name.toLowerCase() === type.toLocaleLowerCase()
       || el[1].code.toLocaleLowerCase() === type.toLocaleLowerCase()
     )) return reject('Indicator is invalid!');
+
     const xray = Xray();
     const url = 'https://bancosantanderinversiones.finmarketslive.cl/www/mercados.html';
     xray(url, 'body@html')((error, body) => {
@@ -15,12 +16,14 @@ const getIndicators = (type = '') => {
       const $ = cheerio.load(body);
       const indicators = [];
       $('.bandContainer > ul > li').each((i, element) => {
-        const item = $(element).find('b').text().trim();
-        indicators.push({
-          code: config.indicators[item].code,
-          name: config.indicators[item].name,
-          value: config.indicators[item].prefix + $(element).find('span[data-bind="text: price"]').text().trim()
-        });
+        const item = ($(element).find('b').text().trim()).toUpperCase();
+        if (config.indicators[item]) {
+          indicators.push({
+            code: config.indicators[item].code,
+            name: config.indicators[item].name,
+            value: config.indicators[item].prefix + $(element).find('span[data-bind="text: price"]').text().trim()
+          });
+        }
       });
 
       resolve(
